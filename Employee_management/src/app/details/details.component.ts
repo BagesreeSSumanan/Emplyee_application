@@ -11,7 +11,8 @@ export class DetailsComponent {
  constructor(private service:UsersService){}
  user:any;
   ngOnInit() {
-    this.user= this.service.getLoggedInUser();
+    //this.user= this.service.getLoggedInUser();
+    this.user =this.service.getLoggedInUser();
     console.log(this.user);
   }
 }

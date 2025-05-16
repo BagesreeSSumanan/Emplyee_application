@@ -6,6 +6,7 @@ import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashbo
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { DetailsComponent } from './details/details.component';
 import { SignupComponent } from './signup/signup.component';
+import{authGuard} from './auth.guard'
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -14,7 +15,7 @@ const routes: Routes = [
       { path: '', component: EmployeeListComponent}
     ]
   },
-  {path:'Employee-dashboard',component:EmployeeDashboardComponent,
+  {path:'Employee-dashboard',component:EmployeeDashboardComponent,canActivate: [authGuard] ,
     children: [
       { path: '', component: DetailsComponent}
     ]

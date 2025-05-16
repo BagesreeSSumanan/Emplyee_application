@@ -20,6 +20,7 @@ import { ProjectListComponent } from './project-list/project-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SignupComponent } from './signup/signup.component';
+import { provideHttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { SignupComponent } from './signup/signup.component';
     MatCheckboxModule
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

@@ -18,18 +18,24 @@ export class LoginComponent {
   onLogin(){
     if (this.username && this.password) {
       console.log('Logging in with:', this.username, this.password);
-      const user = this.service.validateUser(this.username,this.password);
+      const user = this.service.validateUser(this.username,this.password).subscribe({
+        next:(response)=>{
+           sessionStorage.setItem('token', response.accessToken);
+          console.log('token', response.accessToken)
+        }
+      });
        if(user){
           console.log('Login successful:', user);
-          switch (user.role) {
-          case 'admin':
-           this.router.navigate(['/admin-dashboard']);
-            break;
+          // switch (user.role) {
+          // case 'admin':
+          //  this.router.navigate(['/admin-dashboard']);
+          //   break;
 
-          case 'employee':
-            this.router.navigate(['/Employee-dashboard']);
-            break;
-          }
+          // case 'employee':
+          //   this.router.navigate(['/Employee-dashboard']);
+          //   break;
+          // }
+          this.router.navigate(['/Employee-dashboard']);
        }
        else{
         this.errorMessage='Invalid Username or Password.';
