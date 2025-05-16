@@ -1,0 +1,30 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Role</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone No</th>
+      <th scope="col">Project</th>
+      <th scope="col">Assign Project</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{user.username}}</td>
+      <td>{{user.role}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.project}}</td>
+     <td>
+        <button class="btn btn-primary" (click)="Assign(user)">Assign</button>
+      </td>
+      <td>
+        <button class="btn btn-primary" (click)="deleteUser(user)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

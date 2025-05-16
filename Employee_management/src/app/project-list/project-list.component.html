@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>{{ data.user.username }}</h2>
+
+<mat-dialog-content>
+  <p>Assign Projects</p>
+  <div *ngFor="let project of projectList">
+    <mat-checkbox
+      [(ngModel)]="selectedProject[project]"
+    >
+      {{ project }}
+    </mat-checkbox>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">No Thanks</button>
+  <button mat-button cdkFocusInitial (click)="onSelect()">Ok</button>
+</mat-dialog-actions>
+
+
